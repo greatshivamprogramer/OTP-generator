@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generate OTP</title>
+    <link rel="icon" href="https://cdni.iconscout.com/illustration/free/thumb/free-otp-security-4543679-3763926.png">
+</head>
+<style>
+    :root {
+  --main-blue: #71b7e6;
+  --main-red: #cf0c0c;
+  --main-grey: #ccc;
+  --sub-grey: #d9d9d9;
+  --main-purpule:#b036bd;
+  --main-pink:#e2225c;
+}
+    body{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    width: 100vw;
+                    flex-direction: column;
+                    /* background: linear-gradient(135deg, var(--main-blue), var(--main-purpule),var(--sub-grey)); */
+                    background: linear-gradient(45deg, #e975af , #cf0c0c, #d31de8,#2639a8);
+                    background-size: 300% 300%;
+                    animation: color 12s ease-in-out infinite;
+                    
+                    
+    }
+    @keyframes color {
+        0%{
+            background-position: 0% 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0% 50%;
+        }
+    }
+    button{
+        padding: 10px 20px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    label{
+        padding: 10px 20px;
+       font-weight: 900;
+        color: #000000;
+        border: none;
+        outline: none;
+        
+        cursor: pointer;
+    }
+    input{
+        font-size: 15px;
+        font-weight: 600;
+        font-family: sans-serif;
+        background:rgb(232, 222, 222);
+        border: red solid 2px;
+        border-radius: 5px;
+        border-color: var(--main-purpule);
+    }
+</style>
+<body>
+    <img src="https://cdni.iconscout.com/illustration/free/thumb/free-otp-security-4543679-3763926.png" alt="https://img.lovepik.com/element/45012/6200.png_860.png">
+  <button onclick="generateotp(6)"> click  for OTP</button>  
+  
+    <h2 id="text-container"></h2>
+    
+<label> Enter here OTP to verify</label>
+<input type="text" placeholder="OTP" id="input"></input><br>
+<button id="otpcheck"> submit</button>
+</body>
+<script>
+ let otp1 = ""
+    function generateotp(len){
+       let otp = ""
+        for(let i=0;i<len;i++){
+            otp += Math.floor(Math.random() * 10).toString();
+            }
+        
+               
+    document.getElementById('text-container').innerHTML = "your OTP is " + otp;
+otp1 = otp
+    }
+otpcheck.addEventListener('click',function (){
+    let otpinput = document.getElementById('input').value;
+    if(otpinput == otp1){
+        alert("OTP verified.")
+    }
+    else{
+        alert("OTP not verified.Try Again")
+    }
+})
+
+document.getElementById('input').addEventListener('keyup',function(e) {
+  if (e.keyCode === 13) 
+  {  let otpinput = document.getElementById('input').value;
+    if(otpinput == otp1){
+        alert("OTP verified.")
+    }
+    else{
+        alert("OTP not verified.Try Again")
+    }
+}
+});
+
+</script>
+</html>
